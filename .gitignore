@@ -1,0 +1,15 @@
+### Build ###
+/release/
+
+### Composer ###
+/composer.lock
+/vendor/
+
+### PhpStorm ###
+/.idea/
+
+## Visual Studio Code
+/.vscode/
+
+### i18n ###
+/languages/

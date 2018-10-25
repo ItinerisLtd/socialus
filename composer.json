@@ -1,0 +1,58 @@
+{
+    "name": "itinerisltd/socialus",
+    "description": "Straight to the point social sharing links for your WordPress theme",
+    "keywords": [
+        "social",
+        "sharing",
+        "wordpress",
+        "wp"
+    ],
+    "homepage": "https://github.com/ItinerisLtd/socialus",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Itineris Limited",
+            "email": "hello@itineris.co.uk",
+            "homepage": "https://itineris.co.uk/",
+            "role": "Company"
+        },
+        {
+            "name": "Lee Hanbury-Pickett",
+            "email": "lee@codepunchers.co.uk",
+            "homepage": "https://codepunchers.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Itineris\\Socialus\\": "src/"
+        }
+    },
+    "scripts": {
+        "check-style": "phpcs --colors -p",
+        "fix-style": "phpcbf --standard=phpcs.xml",
+        "pretag": [
+            "composer update --no-suggest",
+            "@check-style",
+            "composer normalize",
+            "doctoc README.md",
+            "github_changelog_generator --no-verbose"
+        ]
+    },
+    "support": {
+        "email": "hello@itineris.co.uk",
+        "issues": "https://github.com/ItinerisLtd/socialus/issues",
+        "source": "https://github.com/ItinerisLtd/socialus"
+    },
+    "require-dev": {
+        "itinerisltd/itineris-wp-coding-standards": "^0.1.0"
+    }
+}
