@@ -34,32 +34,32 @@
 ### Traditional WordPress Theme
 
 Require the package into your theme with Composer with:
+
 ```bash
 $ composer require itinerisltd/socialus
 ```
 
-### Sage
-Require the package into Sage:
-```bash
-$ composer require itineris/socialus -o
-```
-
-## Usage
-
-### Traditional WordPress Theme
-
 Render the output!
+
 ```php
+<?php
 $socialus = new \Itineris\Socialus\Socialus();
 echo $socialus->render();
 ```
 
 ### Sage
 
+Require the package into Sage:
+
+```bash
+$ composer require itineris/socialus -o
+```
+
 Add it to a Controller:
+
 ```php
 # sage/app/Controllers/App.php
-
+<?php
 namespace App\Controllers;
 
 use Sober\Controller\Controller;
@@ -77,6 +77,58 @@ class App extends Controller
 Finally, render the output into your Blade template:
 ```blade
 {!! $socialus->render() !!}
+```
+
+## Usage
+
+### Removing a site
+
+```php
+<?php
+$socialus = new Socialus();
+$socialus->removeSite('facebook');
+```
+
+### Adding a site
+
+```php
+<?php
+$socialus = new Socialus();
+$data = [
+    'link' => 'https://reddit.com/submit',
+    'params' => [ // these are to tell Socialus how to share
+        'url' => 'url',
+        'title' => 'title',
+    ],
+    'label' => 'Reddit',
+    'icon' => 'fa fa-reddit',
+    'image' => '', // optional if icon is set
+];
+$socialus->addSite('reddit', $data);
+```
+
+### Change elements and classes
+
+```php
+$socialus = new Socialus([
+    'container_element' => 'div',
+    'container_class' => 'socials',
+    'item_element' => 'span',
+    'item_class' => 'social-item',
+    'link_class' => 'social-item-link',
+]);
+```
+
+### Use icons or images
+
+```php
+$socialus = new Socialus([
+    'type' => 'icon',
+    'screen_reader_class' => 'screen-reader',
+]);
+$socialus_2 = new Socialus([
+    'type' => 'image',
+]);
 ```
 
 ## FAQs
